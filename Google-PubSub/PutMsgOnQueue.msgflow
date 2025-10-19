@@ -24,9 +24,6 @@
     </composition>
     <propertyOrganizer/>
     <stickyBoard>
-      <stickyNote location="238,236" association="FCMComposite_1_3">
-        <body xmi:type="utility:ConstantString" string="ATOPPIN.TEMP.WMS.INPUT"/>
-      </stickyNote>
       <stickyNote location="523,187">
         <body xmi:type="utility:ConstantString" string="To put a test message on the queue that would&#xA;come from GooglePubSub for testing purpose only."/>
       </stickyNote>
