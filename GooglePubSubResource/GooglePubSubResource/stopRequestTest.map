@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="GooglePubSubResource" version="8.0.5.0" xmlns:map="GooglePubSubResource">
+    <input path="/StopRequest.xsd"/>
+    <output path="/StopRequest.xsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="stopRequestTest">
+        <input path="mb:msg(StopRequest,assembly,XMLNSC,Properties)" var="MessageAssembly"/>
+        <output path="mb:msg(StopRequest,assembly,XMLNSC,Properties)" var="MessageAssembly1"/>
+        <condition>
+            <if>
+                <input path="$MessageAssembly/StopRequest/@stop" var="stop"/>
+                <output path="$MessageAssembly1/StopRequest/@stop"/>
+                <test lang="xpath">fn:exists($stop )</test>
+                <assign value="yes">
+                    <output path="."/>
+                </assign>
+            </if>
+            <else>
+                <output path="$MessageAssembly1/StopRequest/@stop"/>
+                <assign value="no">
+                    <output path="."/>
+                </assign>
+            </else>
+        </condition>
+    </mappingDeclaration>
+</mappingRoot>

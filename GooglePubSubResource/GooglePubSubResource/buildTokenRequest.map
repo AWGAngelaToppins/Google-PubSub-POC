@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="GooglePubSubResource" version="8.0.5.0" xmlns:map="GooglePubSubResource">
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/BlobMessage.xsd" var="var1"/>
+    <input path="/Variables.xsd" var="var"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/BlobMessage.xsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="buildTokenRequest">
+        <input path="$var1/mb:msg(BLOB,assembly,BLOB,LocalEnvironment,Properties)" var="MessageAssembly">
+            <cast path="$MessageAssembly/LocalEnvironment/Variables/any" qualifier="googleTokenUrl" ref="var"/>
+            <cast path="$MessageAssembly/LocalEnvironment/Variables/any" qualifier="googleMsgUrl" ref="var"/>
+        </input>
+        <output path="mb:msg(BLOB,assembly,BLOB,LocalEnvironment,Properties)" var="MessageAssembly1">
+            <cast path="$MessageAssembly1/LocalEnvironment/Variables/any" qualifier="googleTokenUrl" ref="var"/>
+            <cast path="$MessageAssembly1/LocalEnvironment/Variables/any" qualifier="googleMsgUrl" ref="var"/>
+        </output>
+        <move>
+            <input path="$MessageAssembly/Properties"/>
+            <output path="$MessageAssembly1/Properties"/>
+        </move>
+        <move>
+            <input path="$MessageAssembly/LocalEnvironment/Variables/googleTokenUrl[1]"/>
+            <output path="$MessageAssembly1/LocalEnvironment/Destination/HTTP/RequestURL"/>
+        </move>
+        <move>
+            <input path="$MessageAssembly/LocalEnvironment/Variables/googleMsgUrl"/>
+            <output path="$MessageAssembly1/LocalEnvironment/Variables/googleMsgUrl"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

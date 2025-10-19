@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="GooglePubSubResource" version="8.0.5.0" xmlns:map="GooglePubSubResource">
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var2"/>
+    <input derivedFrom="MB:JSON_schema_in_json_file" path="/GoogleAndCommonAttributes.schema.json" var="var"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var3"/>
+    <output derivedFrom="MB:JSON_schema_in_json_file" path="/GoogleAndCommonAttributes.schema.json" var="var1"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="sortTransNbr">
+        <input namespace="http://www.ibm.com/iib/msl/json" path="$var2/mb:msg(JSON,assembly,JSON,Properties)" var="MessageAssembly">
+            <cast derivedFrom="MB:JSON_TYPE" path="$MessageAssembly/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}GoogleAndCommonAttributes.schema_JsonType" ref="var"/>
+        </input>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var3/mb:msg(JSON,assembly,JSON,Properties)" var="MessageAssembly1">
+            <cast derivedFrom="MB:JSON_TYPE" path="$MessageAssembly1/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}GoogleAndCommonAttributes.schema_JsonType" ref="var1"/>
+        </output>
+        <move>
+            <input path="$MessageAssembly/Properties"/>
+            <output path="$MessageAssembly1/Properties"/>
+        </move>
+        <foreach>
+            <input path="$MessageAssembly/JSON/spath('Data',2)/ExportDocuments/Item"/>
+            <output path="$MessageAssembly1/JSON/spath('Data',2)/ExportDocuments/Item"/>
+            <sort>
+                <field dataOrder="lexical" modifier="ASC" path="TransactionNumber"/>
+            </sort>
+            <move>
+                <input path="."/>
+                <output path="."/>
+            </move>
+        </foreach>
+        <move>
+            <input path="$MessageAssembly/JSON/spath('Data',2)/googleMsgID"/>
+            <output path="$MessageAssembly1/JSON/spath('Data',2)/googleMsgID"/>
+        </move>
+        <move>
+            <input path="$MessageAssembly/JSON/spath('Data',2)/ContextInformation"/>
+            <output path="$MessageAssembly1/JSON/spath('Data',2)/ContextInformation"/>
+        </move>
+        <move>
+            <input path="$MessageAssembly/JSON/spath('Data',2)/CurrentPage"/>
+            <output path="$MessageAssembly1/JSON/spath('Data',2)/CurrentPage"/>
+        </move>
+        <move>
+            <input path="$MessageAssembly/JSON/spath('Data',2)/UniqueJobId"/>
+            <output path="$MessageAssembly1/JSON/spath('Data',2)/UniqueJobId"/>
+        </move>
+        <move>
+            <input path="$MessageAssembly/JSON/spath('Data',2)/TotalPages"/>
+            <output path="$MessageAssembly1/JSON/spath('Data',2)/TotalPages"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

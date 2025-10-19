@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "receivedMessages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ackId": {
+            "type": "string"
+          },
+          "message": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "BROKER_TYPE": {
+                    "type": "string"
+                  },
+                  "SPAN_ID": {
+                    "type": "string"
+                  },
+                  "QueueName": {
+                    "type": "string"
+                  },
+                  "fromInboundQueueName": {
+                    "type": "string"
+                  },
+                  "TRANSACTIONAL": {
+                    "type": "string"
+                  },
+                  "UserLocale": {
+                    "type": "string"
+                  },
+                  "TenantId": {
+                    "type": "string"
+                  },
+                  "fromInboundServiceId": {
+                    "type": "string"
+                  },
+                  "AllBusinessUnitsAccessible": {
+                    "type": "string"
+                  },
+                  "PrimaryOrganization": {
+                    "type": "string"
+                  },
+                  "BROKER_ADDRESS": {
+                    "type": "string"
+                  },
+                  "APP_ID_TRACE": {
+                    "type": "string"
+                  },
+                  "app-id": {
+                    "type": "string"
+                  },
+                  "SelectedOrganization": {
+                    "type": "string"
+                  },
+                  "ComponentName": {
+                    "type": "string"
+                  },
+                  "fromInboundMessageType": {
+                    "type": "string"
+                  },
+                  "OUTBOUND_MSG_TYPE": {
+                    "type": "string"
+                  },
+                  "msg_submission_time_utc": {
+                    "type": "string"
+                  },
+                  "Organization": {
+                    "type": "string"
+                  },
+                  "MSG_ID_PK": {
+                    "type": "string"
+                  },
+                  "msg_submission_time": {
+                    "type": "string"
+                  },
+                  "User": {
+                    "type": "string"
+                  },
+                  "direction": {
+                    "type": "string"
+                  },
+                  "TRACE_ID": {
+                    "type": "string"
+                  },
+                  "MSG_TYPE": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "BROKER_TYPE",
+                  "SPAN_ID",
+                  "QueueName",
+                  "fromInboundQueueName",
+                  "TRANSACTIONAL",
+                  "UserLocale",
+                  "TenantId",
+                  "fromInboundServiceId",
+                  "AllBusinessUnitsAccessible",
+                  "PrimaryOrganization",
+                  "BROKER_ADDRESS",
+                  "APP_ID_TRACE",
+                  "app-id",
+                  "SelectedOrganization",
+                  "ComponentName",
+                  "fromInboundMessageType",
+                  "OUTBOUND_MSG_TYPE",
+                  "msg_submission_time_utc",
+                  "Organization",
+                  "MSG_ID_PK",
+                  "msg_submission_time",
+                  "User",
+                  "direction",
+                  "TRACE_ID",
+                  "MSG_TYPE"
+                ]
+              },
+              "messageId": {
+                "type": "string"
+              },
+              "publishTime": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "data",
+              "attributes",
+              "messageId",
+              "publishTime"
+            ]
+          }
+        },
+        "required": [
+          "ackId",
+          "message"
+        ]
+      }
+    }
+  },
+  "required": [
+    "receivedMessages"
+  ]
+}

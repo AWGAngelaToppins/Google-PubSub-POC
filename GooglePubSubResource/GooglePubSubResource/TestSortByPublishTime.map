@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="GooglePubSubResource" version="8.0.5.0" xmlns:map="GooglePubSubResource">
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var2"/>
+    <input derivedFrom="MB:JSON_schema_in_json_file" path="/inboundMessage.schema.json" var="var"/>
+    <input path="/Variables.xsd" var="var8"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var3"/>
+    <output derivedFrom="MB:JSON_schema_in_json_file" path="/inboundMessage.schema.json" var="var1"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="in" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="TestSortByPublishTime">
+        <input namespace="http://www.ibm.com/iib/msl/json" path="$var2/mb:msg(JSON,assembly,JSON,LocalEnvironment,Properties)" var="MessageAssembly">
+            <cast derivedFrom="MB:JSON_TYPE" path="$MessageAssembly/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}inboundMessage.schema_JsonType" ref="var"/>
+            <cast path="$MessageAssembly/LocalEnvironment/Variables/any" qualifier="token" ref="var8"/>
+            <cast derivedFrom="MB:JSON_schema_in_json_file" path="$MessageAssembly/LocalEnvironment/Variables/any" qualifier="{http://www.ibm.com/iib/msl/json}inboundMessage.schema" ref="var"/>
+        </input>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var3/mb:msg(JSON,assembly,JSON,LocalEnvironment,Properties)" var="MessageAssembly1">
+            <cast derivedFrom="MB:JSON_TYPE" path="$MessageAssembly1/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}inboundMessage.schema_JsonType" ref="var1"/>
+            <cast path="$MessageAssembly1/LocalEnvironment/Variables/any" qualifier="totalMessages" ref="var8"/>
+            <cast path="$MessageAssembly1/LocalEnvironment/Variables/any" qualifier="token" ref="var8"/>
+            <cast derivedFrom="MB:JSON_schema_in_json_file" path="$MessageAssembly1/LocalEnvironment/Variables/any" qualifier="{http://www.ibm.com/iib/msl/json}inboundMessage.schema" ref="var1"/>
+        </output>
+        <move>
+            <input path="$MessageAssembly/Properties"/>
+            <output path="$MessageAssembly1/Properties"/>
+        </move>
+        <foreach>
+            <input path="$MessageAssembly/JSON/spath('Data',2)/receivedMessages/Item"/>
+            <output path="$MessageAssembly1/JSON/spath('Data',2)/receivedMessages/Item"/>
+            <sort>
+                <field dataOrder="lexical" modifier="ASC" path="message/publishTime"/>
+            </sort>
+            <move>
+                <input path="."/>
+                <output path="."/>
+            </move>
+        </foreach>
+        <move>
+            <input path="$MessageAssembly/LocalEnvironment"/>
+            <output path="$MessageAssembly1/LocalEnvironment"/>
+            <override>
+                <expression>
+                    <input path="$MessageAssembly/JSON/spath('Data',2)/receivedMessages" var="receivedMessages"/>
+                    <output path="$MessageAssembly1/LocalEnvironment/Variables/totalMessages"/>
+                    <code lang="xpath">fn:count($receivedMessages/Item)</code>
+                </expression>
+                <move>
+                    <input path="$MessageAssembly/LocalEnvironment/Variables/token"/>
+                    <output path="$MessageAssembly1/LocalEnvironment/Variables/token"/>
+                </move>
+                <move>
+                    <input path="$MessageAssembly/LocalEnvironment/Variables/inboundMessage.schema"/>
+                    <output path="$MessageAssembly1/LocalEnvironment/Variables/inboundMessage.schema"/>
+                </move>
+            </override>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

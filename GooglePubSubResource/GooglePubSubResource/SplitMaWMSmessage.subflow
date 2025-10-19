@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmMQOutput.msgnode="ComIbmMQOutput.msgnode" xmlns:ComIbmMSLMapping.msgnode="ComIbmMSLMapping.msgnode" xmlns:ComIbmResetContentDescriptor.msgnode="ComIbmResetContentDescriptor.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="GooglePubSubResource/SplitMaWMSmessage.subflow" nsPrefix="GooglePubSubResource_SplitMaWMSmessage.subflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" useDefaults="true" udpSupport="true" nodeLayoutStyle="RECTANGLE">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.awgQueue" name="awgQueue" defaultValueLiteral="placeholder">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <translation xmi:type="utility:TranslatableString" key="SplitMaWMSmessage" bundleName="GooglePubSubResource/SplitMaWMSmessage" pluginId="GooglePubSubResource"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/GooglePubSubResource/icons/full/obj16/SplitMaWMSmessage.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/GooglePubSubResource/icons/full/obj30/SplitMaWMSmessage.gif"/>
+    <composition>
+      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input" location="20,20">
+        <translation xmi:type="utility:TranslatableString" key="InTerminal.Input" bundleName="GooglePubSubResource/SplitMaWMSmessage" pluginId="GooglePubSubResource"/>
+      </nodes>
+      <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output" location="778,41">
+        <translation xmi:type="utility:TranslatableString" key="OutTerminal.Output" bundleName="GooglePubSubResource/SplitMaWMSmessage" pluginId="GooglePubSubResource"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="677,127" destinationMode="list" transactionMode="no">
+        <translation xmi:type="utility:ConstantString" string="FINAL QUEUE"/>
+      </nodes>
+      <nodes xmi:type="ComIbmResetContentDescriptor.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="594,26" messageDomain="JSON" resetMessageDomain="true" resetMessageSet="true" messageFormat="&lt;Check the box to change the value. Default is empty string>">
+        <translation xmi:type="utility:ConstantString" string="Reset Content Descriptor1"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="248,120" mappingExpression="msl://{GooglePubSubResource}#sortTransNbr">
+        <translation xmi:type="utility:ConstantString" string="sortTransNbr"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="480,125" mappingExpression="msl://{GooglePubSubResource}#SplitMaWMSmessage_splitMaMWSmessages">
+        <translation xmi:type="utility:ConstantString" string="splitMaMWSmessages"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="386,18" mappingExpression="msl://{GooglePubSubResource}#SplitMaWMSmessage_buildJSONmsg">
+        <translation xmi:type="utility:ConstantString" string="buildJSONmsg"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="199,21" mappingExpression="msl://{GooglePubSubResource}#SplitMaWMSmessage_buildJSONstring">
+        <translation xmi:type="utility:ConstantString" string="buildJSONstring"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="OutTerminal.Output" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_5" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_7" targetNode="FCMComposite_1_6" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_8" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_9" targetNode="FCMComposite_1_1" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_10" targetNode="FCMComposite_1_9" sourceNode="InTerminal.Input" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_11" targetNode="FCMComposite_1_7" sourceNode="FCMComposite_1_9" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.awgQueue">
+        <propertyName xmi:type="utility:TranslatableString" key="Property.awgQueue" bundleName="GooglePubSubResource/SplitMaWMSmessage" pluginId="GooglePubSubResource"/>
+      </propertyDescriptor>
+    </propertyOrganizer>
+    <stickyBoard>
+      <stickyNote location="19,113">
+        <body xmi:type="utility:ConstantString" string="Query to see if duplicate message.&#xA;If so, update count and drop dup &#xA;message.&#xA;"/>
+      </stickyNote>
+      <stickyNote location="467,181" association="FCMComposite_1_6">
+        <body xmi:type="utility:ConstantString" string="Split messages.&#xA;Insert into header/detail tables."/>
+      </stickyNote>
+    </stickyBoard>
+  </eClassifiers>
+</ecore:EPackage>

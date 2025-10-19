@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmMQGet.msgnode="ComIbmMQGet.msgnode" xmlns:ComIbmMQOutput.msgnode="ComIbmMQOutput.msgnode" xmlns:ComIbmMSLMapping.msgnode="ComIbmMSLMapping.msgnode" xmlns:ComIbmPassthru.msgnode="ComIbmPassthru.msgnode" xmlns:ComIbmRoute.msgnode="ComIbmRoute.msgnode" xmlns:ComIbmWSRequest.msgnode="ComIbmWSRequest.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility"
+    nsURI="GooglePubSubResource/PullAckMessageTEST.subflow" nsPrefix="GooglePubSubResource_PullAckMessageTEST.subflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" useDefaults="true" udpSupport="true" nodeLayoutStyle="RECTANGLE">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.awgTempQueue" name="awgTempQueue" defaultValueLiteral="placeholder">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.googleTopic" name="googleTopic" defaultValueLiteral="placeholder">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.maxMessagesToPull" name="maxMessagesToPull" defaultValueLiteral="50">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <translation xmi:type="utility:TranslatableString" key="PullAckMessageTEST" bundleName="GooglePubSubResource/PullAckMessageTEST" pluginId="GooglePubSubResource"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/GooglePubSubResource/icons/full/obj16/PullAckMessageTEST.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/GooglePubSubResource/icons/full/obj30/PullAckMessageTEST.gif"/>
+    <composition>
+      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input" location="-463,242">
+        <translation xmi:type="utility:TranslatableString" key="InTerminal.Input" bundleName="GooglePubSubResource/PullAckMessageTEST" pluginId="GooglePubSubResource"/>
+      </nodes>
+      <nodes xmi:type="ComIbmWSRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="47,223" URLSpecifier="http://10.1.200.74:2011" httpVersion="1.1" protocol="TLS" messageDomainProperty="JSON">
+        <translation xmi:type="utility:ConstantString" string="GetToken"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="249,224" mappingExpression="msl://{GooglePubSubResource}#buildMsgRequest">
+        <translation xmi:type="utility:ConstantString" string="buildMsgRequest"/>
+      </nodes>
+      <nodes xmi:type="ComIbmWSRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="448,227" URLSpecifier="http://10.1.200.74:2013" httpVersion="1.1" protocol="TLS" messageDomainProperty="JSON">
+        <translation xmi:type="utility:ConstantString" string="Pull Message"/>
+      </nodes>
+      <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output1" location="956,160">
+        <translation xmi:type="utility:TranslatableString" key="OutTerminal.Output1" bundleName="GooglePubSubResource/PullAckMessageTEST" pluginId="GooglePubSubResource"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="666,226" mappingExpression="msl://{GooglePubSubResource}#anyMessages">
+        <translation xmi:type="utility:ConstantString" string="anyMessages"/>
+      </nodes>
+      <nodes xmi:type="ComIbmRoute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_8" location="861,263">
+        <outTerminals terminalNodeID="Match" dynamic="true" label="Match"/>
+        <outTerminals terminalNodeID="anyMsgs" dynamic="true" label="anyMsgs"/>
+        <translation xmi:type="utility:ConstantString" string="Route1"/>
+        <filterTable filterPattern="$LocalEnvironment/Variables/anyMsgs='yes'" routingOutputTerminal="anyMsgs"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_20" location="-249,132" mappingExpression="msl://{GooglePubSubResource}#getEnvironmentUrl">
+        <translation xmi:type="utility:ConstantString" string="getEnvironmentUrl"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_25" location="-145,219" mappingExpression="msl://{GooglePubSubResource}#buildTokenRequest">
+        <translation xmi:type="utility:ConstantString" string="buildTokenRequest"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="444,429" destinationMode="list" transactionMode="no">
+        <translation xmi:type="utility:ConstantString" string="TEMP QUEUE"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_11" location="260,425" mappingExpression="msl://{GooglePubSubResource}#splitGoogleMessages">
+        <translation xmi:type="utility:ConstantString" string="splitGoogleMessages"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_13" location="665,432" mappingExpression="msl://{GooglePubSubResource}#mapAckReq">
+        <translation xmi:type="utility:ConstantString" string="mapAckReq"/>
+      </nodes>
+      <nodes xmi:type="ComIbmWSRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_15" location="888,478" URLSpecifier="http://10.1.200.74:2013" httpVersion="1.1" protocol="TLS" messageDomainProperty="JSON">
+        <translation xmi:type="utility:ConstantString" string="Acknowledge Request"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_16" location="69,420" mappingExpression="msl://{GooglePubSubResource}#getTotalMsgCount">
+        <translation xmi:type="utility:ConstantString" string="getTotalMsgCount"/>
+      </nodes>
+      <nodes xmi:type="ComIbmRoute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_17" location="1059,436">
+        <outTerminals terminalNodeID="Match" dynamic="true" label="Match"/>
+        <outTerminals terminalNodeID="theEnd" dynamic="true" label="theEnd"/>
+        <translation xmi:type="utility:ConstantString" string="loopDoneYet"/>
+        <filterTable filterPattern="$LocalEnvironment/Variables/totalMessages=$LocalEnvironment/Variables/indexCount" routingOutputTerminal="theEnd"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMQGet.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="-327,408" queueName="ATOPPIN.TEMP.WMS.SAMPLE.MSG" messageDomainProperty="JSON">
+        <translation xmi:type="utility:ConstantString" string="getTestMsg"/>
+      </nodes>
+      <nodes xmi:type="ComIbmPassthru.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="1255,445">
+        <translation xmi:type="utility:ConstantString" string="theEnd"/>
+      </nodes>
+      <nodes xmi:type="ComIbmPassthru.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="1247,389">
+        <translation xmi:type="utility:ConstantString" string="getNextGoogleMsg"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_5" targetNode="FCMComposite_1_6" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_8" targetNode="FCMComposite_1_8" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_17" targetNode="OutTerminal.Output1" sourceNode="FCMComposite_1_8" sourceTerminalName="OutTerminal.default" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_12" targetNode="FCMComposite_1_20" sourceNode="InTerminal.Input" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_18" targetNode="FCMComposite_1_25" sourceNode="FCMComposite_1_20" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_20" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_25" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_21" targetNode="FCMComposite_1_7" sourceNode="FCMComposite_1_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_13" targetNode="FCMComposite_1_9" sourceNode="FCMComposite_1_11" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_19" targetNode="FCMComposite_1_13" sourceNode="FCMComposite_1_9" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_23" targetNode="FCMComposite_1_16" sourceNode="FCMComposite_1_8" sourceTerminalName="anyMsgs" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_24" targetNode="FCMComposite_1_11" sourceNode="FCMComposite_1_16" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_25" targetNode="FCMComposite_1_17" sourceNode="FCMComposite_1_15" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_1" sourceNode="InTerminal.Input" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_16" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_7" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_17" sourceTerminalName="theEnd" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_9" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_17" sourceTerminalName="OutTerminal.default" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_17" sourceNode="FCMComposite_1_13" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.awgTempQueue">
+        <propertyName xmi:type="utility:TranslatableString" key="Property.awgTempQueue" bundleName="GooglePubSubResource/PullAckMessageTEST" pluginId="GooglePubSubResource"/>
+        <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.googleTopic">
+          <propertyName xmi:type="utility:TranslatableString" key="Property.googleTopic" bundleName="GooglePubSubResource/PullAckMessageTEST" pluginId="GooglePubSubResource"/>
+          <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.maxMessagesToPull">
+            <propertyName xmi:type="utility:TranslatableString" key="Property.maxMessagesToPull" bundleName="GooglePubSubResource/PullAckMessageTEST" pluginId="GooglePubSubResource"/>
+          </propertyDescriptor>
+        </propertyDescriptor>
+      </propertyDescriptor>
+    </propertyOrganizer>
+    <stickyBoard>
+      <stickyNote location="1193,137">
+        <body xmi:type="utility:ConstantString" string="IF NO MESSAGE, &#xA;    EXIT SUBFLOW &#xA;UNTIL THE TIMER WAITS UP AGAIN."/>
+      </stickyNote>
+      <stickyNote location="-298,23">
+        <body xmi:type="utility:ConstantString" string="http://10.1.200.74:2011&#xD;&#xA;http://10.1.200.74:2013/v1/projects/awgr-masc-stg-01-ops/subscriptions/&#xD;&#xA;&#xD;&#xA;How to configure URL for test, qa, prod for each environment &#xD;&#xA;since AWG practice is NOT to override BAR config."/>
+      </stickyNote>
+      <stickyNote location="89,350">
+        <body xmi:type="utility:ConstantString" string="Loop until all messages are put to temporary holding queue and acknowleged."/>
+      </stickyNote>
+      <stickyNote location="1081,515">
+        <body xmi:type="utility:ConstantString" string="Check to see if done with this group of messages, &#xA;call google again to see if there are any more messages.&#xA;Otherwise, continue the loop."/>
+      </stickyNote>
+      <stickyNote location="-292,344">
+        <body xmi:type="utility:ConstantString" string="For Testing Only, skip the pub sub call.&#xA;Focus is on parsing the google message."/>
+      </stickyNote>
+    </stickyBoard>
+  </eClassifiers>
+</ecore:EPackage>

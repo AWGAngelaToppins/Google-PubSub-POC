@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="GooglePubSubResource" version="8.0.5.0" xmlns:map="GooglePubSubResource">
+    <inlinedXMLSchema><![CDATA[<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">  
+    <xsd:element name="Authorization" type="xsd:string"/>  
+</xsd:schema>]]></inlinedXMLSchema>
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var1"/>
+    <input derivedFrom="MB:JSON_schema_in_json_file" path="/inboundMessage.schema.json" var="var"/>
+    <input inlinedXMLSchema="true" path="../schema_0.xsd" var="var4"/>
+    <input path="/Variables.xsd" var="var5"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var3"/>
+    <output derivedFrom="MB:JSON_schema_in_json_file" path="/acknowledgeMessage.schema.json" var="var2"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="mapAckReq">
+        <input namespace="http://www.ibm.com/iib/msl/json" path="$var1/mb:msg(JSON,assembly,JSON,LocalEnvironment,Properties)" var="MessageAssembly">
+            <cast derivedFrom="MB:JSON_TYPE" path="$MessageAssembly/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}inboundMessage.schema_JsonType" ref="var"/>
+            <cast path="$MessageAssembly/LocalEnvironment/Variables/any" qualifier="accessToken" ref="var5"/>
+            <cast path="$MessageAssembly/LocalEnvironment/Variables/any" qualifier="googleMsgUrl" ref="var5"/>
+            <cast path="$MessageAssembly/LocalEnvironment/Variables/any" qualifier="totalMessages" ref="var5"/>
+            <cast path="$MessageAssembly/LocalEnvironment/Variables/any" qualifier="indexCount" ref="var5"/>
+        </input>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var3/mb:msg(JSON,assembly,JSON,LocalEnvironment,Properties,HTTPRequestHeader)" var="MessageAssembly1">
+            <cast derivedFrom="MB:JSON_TYPE" path="$MessageAssembly1/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}acknowledgeMessage.schema_JsonType" ref="var2"/>
+            <cast castType="userDefined" path="$MessageAssembly1/HTTPRequestHeader/any" qualifier="Authorization" ref="var4"/>
+            <cast path="$MessageAssembly1/LocalEnvironment/Variables/any" qualifier="totalMessages" ref="var5"/>
+            <cast path="$MessageAssembly1/LocalEnvironment/Variables/any" qualifier="indexCount" ref="var5"/>
+        </output>
+        <move>
+            <input path="$MessageAssembly/Properties"/>
+            <output path="$MessageAssembly1/Properties"/>
+        </move>
+        <foreach>
+            <input path="$MessageAssembly/JSON/spath('Data',2)/receivedMessages/Item"/>
+            <output path="$MessageAssembly1/JSON/spath('Data',2)/ackIds/Item"/>
+            <move>
+                <input path="ackId"/>
+                <output path="."/>
+            </move>
+        </foreach>
+        <move>
+            <input path="$MessageAssembly/LocalEnvironment/Variables/accessToken"/>
+            <output path="$MessageAssembly1/HTTPRequestHeader/Authorization"/>
+        </move>
+        <expression>
+            <input path="$MessageAssembly/LocalEnvironment/Variables/googleMsgUrl" var="googleMsgUrl"/>
+            <output path="$MessageAssembly1/LocalEnvironment/Destination/HTTP/RequestURL"/>
+            <code lang="xpath">fn:concat( $googleMsgUrl,iib:getUserDefinedProperty('googleTopic'),':acknowledge' )</code>
+        </expression>
+        <move>
+            <input path="$MessageAssembly/LocalEnvironment/Variables/totalMessages"/>
+            <output path="$MessageAssembly1/LocalEnvironment/Variables/totalMessages"/>
+        </move>
+        <move>
+            <input path="$MessageAssembly/LocalEnvironment/Variables/indexCount"/>
+            <output path="$MessageAssembly1/LocalEnvironment/Variables/indexCount"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

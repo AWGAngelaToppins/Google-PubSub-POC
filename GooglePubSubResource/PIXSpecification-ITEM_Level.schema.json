@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "ContextInformation": {
+      "type": "object",
+      "properties": {
+        "Messages": {
+          "type": "object"
+        },
+        "Organization": {
+          "type": "string"
+        },
+        "UserId": {
+          "type": "string"
+        },
+        "UserLocale": {
+          "type": "string"
+        },
+        "Location": {
+          "type": "string"
+        }
+      },
+      "required": [
+      ]
+    },
+    "CurrentPage": {
+      "type": "number"
+    },
+    "ExportDocuments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Messages": {
+            "type": "object"
+          },
+          "PIXSpecification": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "SourceTransactionType": {
+            "type": "string"
+          },
+          "SourceEventName": {
+            "type": "string"
+          },
+          "ItemDefinition": {
+            "type": "object",
+            "properties": {
+              "Company": {
+                "type": "string"
+              },
+              "Season": {
+                "type": "string"
+              },
+              "SeasonYear": {
+                "type": "string"
+              },
+              "Style": {
+                "type": "string"
+              },
+              "StyleSuffix": {
+                "type": "string"
+              },
+              "Color": {
+                "type": "string"
+              },
+              "ColorSuffix": {
+                "type": "string"
+              },
+              "SecondDimension": {
+                "type": "string"
+              },
+              "SizeCode": {
+                "type": "string"
+              },
+              "SizeDescription": {
+                "type": "string"
+              },
+              "ItemId": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            },
+            "required": [
+            ]
+          },
+          "SubItemFields": {
+            "type": "object",
+            "properties": {
+              "CountryOfOrigin": {
+                "type": "string"
+              },
+              "InventoryTypeId": {
+                "type": "string"
+              },
+              "ProductStatusId": {
+                "type": "string"
+              },
+              "ItemBatchNumberId": {
+                "type": "string"
+              },
+              "InventoryAttribute1": {
+                "type": "string"
+              },
+              "InventoryAttribute2": {
+                "type": "string"
+              },
+              "InventoryAttribute3": {
+                "type": "string"
+              },
+              "InventoryAttribute4": {
+                "type": "string"
+              },
+              "InventoryAttribute5": {
+                "type": "string"
+              },
+              "ExpirationDate": {
+                "type": "string"
+              },
+              "ManufactureDate": {
+                "type": "string"
+              }
+            },
+            "required": [
+            ]
+          },
+          "PIXFields": {
+            "type": "object",
+            "properties": {
+              "BusinessUnitId": {
+                "type": "string"
+              },
+              "ExternalOrganizationId": {
+                "type": "string"
+              },
+              "RrnId": {
+                "type": "string"
+              },
+              "AsnLevelId": {
+                "type": "string"
+              },
+              "CreatedBy": {
+                "type": "string"
+              },
+              "OriginalOrderId": {
+                "type": "string"
+              },
+              "OriginalOrderLineId": {
+                "type": "string"
+              },
+              "AsnSequenceNumber": {
+                "type": "string"
+              },
+              "AsnLineId": {
+                "type": "string"
+              },
+              "PurchaseOrderId": {
+                "type": "string"
+              },
+              "PurchaseOrderLineId": {
+                "type": "string"
+              },
+              "AsnId": {
+                "type": "string"
+              },
+              "AsnStatus": {
+                "type": "string"
+              },
+              "AsnOriginTypeId": {
+                "type": "string"
+              },
+              "ReceiptVariance": {
+                "type": "string"
+              },
+              "ReceiptsCompleted": {
+                "type": "string"
+              },
+              "iLPNsShipped": {
+                "type": "string"
+              },
+              "iLPNsReceived": {
+                "type": "string"
+              },
+              "UnitsShipped": {
+                "type": "string"
+              },
+              "UnitsReceived": {
+                "type": "string"
+              }
+            },
+            "required": [
+            ]
+          },
+          "TransactionNumber": {
+            "type": "string"
+          },
+          "SequenceNumber": {
+            "type": "integer"
+          },
+          "TransactionDateTime": {
+            "type": "string"
+          },
+          "Organization": {
+            "type": "string"
+          },
+          "Facility": {
+            "type": "string"
+          }
+        },
+        "required": [
+        ]
+      }
+    },
+    "UniqueJobId": {
+      "type": "string"
+    },
+    "TotalPages": {
+      "type": "integer"
+    }
+  },
+  "required": [
+  ]
+}

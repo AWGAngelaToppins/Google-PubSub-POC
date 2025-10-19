@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="Variables">
+    <xsd:complexType>
+      <xsd:sequence>
+      	<xsd:element ref="totalMessages" />
+      	<xsd:element ref="indexCount" />
+      	<xsd:element name="UniqueJobID" type="xsd:string"></xsd:element>
+      	<xsd:element name="anyMsgs" type="xsd:string"></xsd:element>
+      	<xsd:element name="uniqueMsg" type="xsd:string"></xsd:element>
+      	<xsd:element name="dupMessage" type="xsd:string"></xsd:element>
+      	<xsd:element name="token" type="xsd:string"></xsd:element>
+      	<xsd:element name="stringValue" type="xsd:string"></xsd:element>
+      	<xsd:element name="googleTokenUrl" type="xsd:string"></xsd:element>
+      	<xsd:element name="googleMsgUrl" type="xsd:string"></xsd:element>
+      	<xsd:element name="accessToken" type="xsd:string"></xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="indexCount" type="xsd:int"/>
+  <xsd:element name="totalMessages" type="xsd:int"/>
+  <xsd:element name="anyMsgs" type="xsd:string"></xsd:element>
+  <xsd:element name="uniqueMsg" type="xsd:string"></xsd:element>
+  <xsd:element name="dupMessage" type="xsd:string"></xsd:element>
+  <xsd:element name="token" type="xsd:string"></xsd:element>
+  <xsd:element name="stringValue" type="xsd:string"></xsd:element>
+  <xsd:element name="googleTokenUrl" type="xsd:string"></xsd:element>
+  <xsd:element name="googleMsgUrl" type="xsd:string"></xsd:element>
+  <xsd:element name="accessToken" type="xsd:string"></xsd:element>
+</xsd:schema>
