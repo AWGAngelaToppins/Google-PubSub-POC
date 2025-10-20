@@ -9,7 +9,7 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/GooglePubSubResource/icons/full/obj16/SplitMaWMSmessage.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/GooglePubSubResource/icons/full/obj30/SplitMaWMSmessage.gif"/>
     <composition>
-      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input" location="20,20">
+      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input" location="-171,88">
         <translation xmi:type="utility:TranslatableString" key="InTerminal.Input" bundleName="GooglePubSubResource/SplitMaWMSmessage" pluginId="GooglePubSubResource"/>
       </nodes>
       <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output" location="778,41">
@@ -47,7 +47,7 @@
       </propertyDescriptor>
     </propertyOrganizer>
     <stickyBoard>
-      <stickyNote location="19,113">
+      <stickyNote location="2,74">
         <body xmi:type="utility:ConstantString" string="Query to see if duplicate message.&#xA;If so, update count and drop dup &#xA;message.&#xA;"/>
       </stickyNote>
       <stickyNote location="467,181" association="FCMComposite_1_6">
