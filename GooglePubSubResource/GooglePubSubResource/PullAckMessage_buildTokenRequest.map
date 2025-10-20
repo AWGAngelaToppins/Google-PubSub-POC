@@ -3,7 +3,7 @@
     <input path="/Variables.xsd" var="var"/>
     <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/BlobMessage.xsd"/>
     <generation engine="xquery"/>
-    <mappingDeclaration name="buildTokenRequest">
+    <mappingDeclaration name="PullAckMessage_buildTokenRequest">
         <input path="$var1/mb:msg(BLOB,assembly,BLOB,LocalEnvironment,Properties)" var="MessageAssembly">
             <cast path="$MessageAssembly/LocalEnvironment/Variables/any" qualifier="googleTokenUrl" ref="var"/>
             <cast path="$MessageAssembly/LocalEnvironment/Variables/any" qualifier="googleMsgUrl" ref="var"/>

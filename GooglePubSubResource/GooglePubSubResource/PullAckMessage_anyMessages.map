@@ -8,7 +8,7 @@
         <namespace kind="supplement" prefix="io" uri="http://www.ibm.com/iib/msl/json"/>
     </namespaces>
     <generation engine="xquery"/>
-    <mappingDeclaration name="anyMessages">
+    <mappingDeclaration name="PullAckMessage_anyMessages">
         <input namespace="http://www.ibm.com/iib/msl/json" path="$var1/mb:msg(JSON,assembly,JSON,LocalEnvironment,Properties)" var="MessageAssembly">
             <cast derivedFrom="MB:JSON_TYPE" path="$MessageAssembly/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}inboundMessage.schema_JsonType" ref="var"/>
             <cast path="$MessageAssembly/LocalEnvironment/Variables/any" qualifier="token" ref="var4"/>

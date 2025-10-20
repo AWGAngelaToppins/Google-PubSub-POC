@@ -4,8 +4,11 @@
     <input path="/Variables.xsd" var="var4"/>
     <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var3"/>
     <output derivedFrom="MB:JSON_schema_in_json_file" path="/inboundMessage.schema.json" var="var1"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
     <generation engine="xquery"/>
-    <mappingDeclaration name="getTotalMsgCount">
+    <mappingDeclaration name="PullAckMessage_getTotalMsgCount">
         <input namespace="http://www.ibm.com/iib/msl/json" path="$var2/mb:msg(JSON,assembly,JSON,Properties)" var="MessageAssembly">
             <cast derivedFrom="MB:JSON_TYPE" path="$MessageAssembly/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}inboundMessage.schema_JsonType" ref="var"/>
         </input>

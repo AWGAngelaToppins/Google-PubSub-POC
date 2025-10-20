@@ -2,7 +2,7 @@
     <input path="/Variables.xsd" var="var"/>
     <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/BlobMessage.xsd"/>
     <generation engine="xquery"/>
-    <mappingDeclaration name="getEnvironmentUrl">
+    <mappingDeclaration name="PullAckMessage_getEnvironmentUrl">
         <output path="mb:msg(BLOB,assembly,BLOB,LocalEnvironment,Properties)">
             <cast path="LocalEnvironment/Variables/any" qualifier="googleTokenUrl" ref="var"/>
             <cast path="LocalEnvironment/Variables/any" qualifier="googleMsgUrl" ref="var"/>
