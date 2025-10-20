@@ -21,7 +21,7 @@
       <nodes xmi:type="ComIbmResetContentDescriptor.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="594,26" messageDomain="JSON" resetMessageDomain="true" resetMessageSet="true" messageFormat="&lt;Check the box to change the value. Default is empty string>">
         <translation xmi:type="utility:ConstantString" string="Reset Content Descriptor1"/>
       </nodes>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="248,120" mappingExpression="msl://{GooglePubSubResource}#sortTransNbr">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="248,120" mappingExpression="msl://{GooglePubSubResource}#SplitMaWMSmessage_sortTransNbr">
         <translation xmi:type="utility:ConstantString" string="sortTransNbr"/>
       </nodes>
       <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="480,125" mappingExpression="msl://{GooglePubSubResource}#SplitMaWMSmessage_splitMaMWSmessages">

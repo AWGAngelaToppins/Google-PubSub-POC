@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmMQInput.msgnode="ComIbmMQInput.msgnode" xmlns:ComIbmPassthru.msgnode="ComIbmPassthru.msgnode" xmlns:GooglePubSubResource_PullAckMessageTEST.subflow="GooglePubSubResource/PullAckMessageTEST.subflow" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="GooglePubSubTrigger.msgflow" nsPrefix="GooglePubSubTrigger.msgflow">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmMQInput.msgnode="ComIbmMQInput.msgnode" xmlns:ComIbmPassthru.msgnode="ComIbmPassthru.msgnode" xmlns:GooglePubSubResource_PullAckMessage.subflow="GooglePubSubResource/PullAckMessage.subflow" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="GooglePubSubTrigger.msgflow" nsPrefix="GooglePubSubTrigger.msgflow">
   <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" nodeLayoutStyle="RECTANGLE">
     <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
     <translation xmi:type="utility:TranslatableString" key="GooglePubSubTrigger" bundleName="GooglePubSubTrigger" pluginId="Google-PubSub"/>
@@ -12,8 +12,8 @@
       <nodes xmi:type="ComIbmPassthru.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_16" location="400,85">
         <translation xmi:type="utility:ConstantString" string="Pass through"/>
       </nodes>
-      <nodes xmi:type="GooglePubSubResource_PullAckMessageTEST.subflow:FCMComposite_1" xmi:id="FCMComposite_1_2" location="235,46" awgTempQueue="ATOPPIN.TEMP.WMS.TEMP.INVADJUST" googleTopic="XNT_HST_InventoryAdjustment_GCPQ">
-        <translation xmi:type="utility:ConstantString" string="PullAckMessageTEST"/>
+      <nodes xmi:type="GooglePubSubResource_PullAckMessage.subflow:FCMComposite_1" xmi:id="FCMComposite_1_2" location="213,32" awgTempQueue="ATOPPIN.TEMP.WMS.TEMP.INVADJUST" googleTopic="XNT_HST_InventoryAdjustment_GCPQ">
+        <translation xmi:type="utility:ConstantString" string="PullAckMessage"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_16" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.Output1" targetTerminalName="InTerminal.in"/>

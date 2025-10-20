@@ -7,7 +7,7 @@
         <namespace kind="supplement" prefix="io" uri="http://www.ibm.com/iib/msl/json"/>
     </namespaces>
     <generation engine="xquery"/>
-    <mappingDeclaration name="sortTransNbr">
+    <mappingDeclaration name="SplitMaWMSmessage_sortTransNbr">
         <input namespace="http://www.ibm.com/iib/msl/json" path="$var2/mb:msg(JSON,assembly,JSON,Properties)" var="MessageAssembly">
             <cast derivedFrom="MB:JSON_TYPE" path="$MessageAssembly/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}GoogleAndCommonAttributes.schema_JsonType" ref="var"/>
         </input>
