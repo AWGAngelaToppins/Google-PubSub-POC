@@ -2,6 +2,12 @@
     <input path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/BlobMessage.xsd" var="var1"/>
     <input path="/Variables.xsd" var="var"/>
     <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/BlobMessage.xsd"/>
+    <imports>
+        <import kind="java" location="GooglePubSubResource.GoogleTokenSession" namespace="xalan://GooglePubSubResource.GoogleTokenSession"/>
+    </imports>
+    <namespaces>
+        <namespace kind="extension" prefix="GoogleTokenSession" uri="xalan://GooglePubSubResource.GoogleTokenSession"/>
+    </namespaces>
     <generation engine="xquery"/>
     <mappingDeclaration name="PullAckMessage_buildTokenRequest">
         <input path="$var1/mb:msg(BLOB,assembly,BLOB,LocalEnvironment,Properties)" var="MessageAssembly">
@@ -11,6 +17,7 @@
         <output path="mb:msg(BLOB,assembly,BLOB,LocalEnvironment,Properties)" var="MessageAssembly1">
             <cast path="$MessageAssembly1/LocalEnvironment/Variables/any" qualifier="googleTokenUrl" ref="var"/>
             <cast path="$MessageAssembly1/LocalEnvironment/Variables/any" qualifier="googleMsgUrl" ref="var"/>
+            <cast path="$MessageAssembly1/LocalEnvironment/Variables/any" qualifier="accessToken" ref="var"/>
         </output>
         <move>
             <input path="$MessageAssembly/Properties"/>
@@ -24,5 +31,8 @@
             <input path="$MessageAssembly/LocalEnvironment/Variables/googleMsgUrl"/>
             <output path="$MessageAssembly1/LocalEnvironment/Variables/googleMsgUrl"/>
         </move>
+        <customFunction lang="java" ref="GoogleTokenSession:getToken">
+            <output path="$MessageAssembly1/LocalEnvironment/Variables/accessToken"/>
+        </customFunction>
     </mappingDeclaration>
 </mappingRoot>

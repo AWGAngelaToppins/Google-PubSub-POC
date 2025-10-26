@@ -6,7 +6,7 @@
       "type": "string"
     },
     "expires_in": {
-      "type": "number"
+      "type": "integer"
     },
     "token_type": {
       "type": "string"
