@@ -12,11 +12,47 @@
     <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.maxMessagesToPull" name="maxMessagesToPull" defaultValueLiteral="50">
       <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.sandGoogle_Access_Token" name="sandGoogle_Access_Token" defaultValueLiteral="http://dpdev01-api-sb.awg.local:8020">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.sandGoogle_PubSub" name="sandGoogle_PubSub" defaultValueLiteral="http://dpdev01-api-sb.awg.local:8021/v1/projects/awgr-masc-stg-01-ops/subscriptions/">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.devGoogle_Access_Token" name="devGoogle_Access_Token" defaultValueLiteral="http://dpdev01-api-dev.awg.local:8020">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.devGoogle_PubSub" name="devGoogle_PubSub" defaultValueLiteral="http://dpdev01-api-dev.awg.local:8021/v1/projects/awgr-masc-stg-01-ops/subscriptions/">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.qaGoogle_Access_Token" name="qaGoogle_Access_Token" defaultValueLiteral="http://dpowerapp-qa.awg.local:8020">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.qaGoogle_PubSub" name="qaGoogle_PubSub" defaultValueLiteral="http://dpowerapp-qa.awg.local:8021/v1/projects/awgr-masc-stg-01-ops/subscriptions/">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.uatGoogle_Access_Token" name="uatGoogle_Access_Token" defaultValueLiteral="http://dpowerapp-uat.awg.local:8020">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.uatGoogle_PubSub" name="uatGoogle_PubSub" defaultValueLiteral="http://dpowerapp-uat.awg.local:8021/v1/projects/awgr-masc-stg-01-ops/subscriptions/">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.prod1Google_Access_Token" name="prod1Google_Access_Token" defaultValueLiteral="http://pdp1.awg.local:8020">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.prod1Google_PubSub" name="prod1Google_PubSub" defaultValueLiteral="http://pdp1.awg.local:8021/v1/projects/awgr-masc-stg-01-ops/subscriptions/">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.prod2Google_Access_Token" name="prod2Google_Access_Token" defaultValueLiteral="http://pdp2.awg.local:8020">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.prod2Google_PubSub" name="prod2Google_PubSub" defaultValueLiteral="http://pdp2.awg.local:8021/v1/projects/awgr-masc-stg-01-ops/subscriptions/">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
     <translation xmi:type="utility:TranslatableString" key="PullAckMessage" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/GooglePubSubResource/icons/full/obj16/PullAckMessage.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/GooglePubSubResource/icons/full/obj30/PullAckMessage.gif"/>
     <composition>
-      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input" location="-463,242">
+      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input" location="-460,174">
         <translation xmi:type="utility:TranslatableString" key="InTerminal.Input" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
       </nodes>
       <nodes xmi:type="ComIbmWSRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="50,255" URLSpecifier="http://10.1.200.74:2011" httpVersion="1.1" protocol="TLS" messageDomainProperty="JSON">
@@ -40,10 +76,7 @@
         <translation xmi:type="utility:ConstantString" string="Route1"/>
         <filterTable filterPattern="$LocalEnvironment/Variables/anyMsgs='yes'" routingOutputTerminal="anyMsgs"/>
       </nodes>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_20" location="-332,135" mappingExpression="msl://{GooglePubSubResource}#PullAckMessage_getEnvironmentUrl">
-        <translation xmi:type="utility:ConstantString" string="getEnvironmentUrl"/>
-      </nodes>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_25" location="-258,207" mappingExpression="msl://{GooglePubSubResource}#PullAckMessage_buildTokenRequest">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_25" location="-277,175" mappingExpression="msl://{GooglePubSubResource}#PullAckMessage_buildTokenRequest">
         <translation xmi:type="utility:ConstantString" string="buildTokenRequest"/>
       </nodes>
       <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="444,429" destinationMode="list" transactionMode="no">
@@ -79,7 +112,7 @@
       <nodes xmi:type="ComIbmPassthru.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_10" location="1081,264">
         <translation xmi:type="utility:ConstantString" string="Pass through"/>
       </nodes>
-      <nodes xmi:type="ComIbmRoute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_14" location="-216,263">
+      <nodes xmi:type="ComIbmRoute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_14" location="-219,227">
         <outTerminals terminalNodeID="Match" dynamic="true" label="Match"/>
         <outTerminals terminalNodeID="getNewToken" dynamic="true" label="getNewToken"/>
         <translation xmi:type="utility:ConstantString" string="Route"/>
@@ -92,8 +125,6 @@
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_5" targetNode="FCMComposite_1_6" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_8" targetNode="FCMComposite_1_8" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_17" targetNode="OutTerminal.Output1" sourceNode="FCMComposite_1_8" sourceTerminalName="OutTerminal.default" targetTerminalName="InTerminal.in"/>
-      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_12" targetNode="FCMComposite_1_20" sourceNode="InTerminal.Input" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
-      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_18" targetNode="FCMComposite_1_25" sourceNode="FCMComposite_1_20" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_21" targetNode="FCMComposite_1_7" sourceNode="FCMComposite_1_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_13" targetNode="FCMComposite_1_9" sourceNode="FCMComposite_1_11" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_19" targetNode="FCMComposite_1_13" sourceNode="FCMComposite_1_9" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
@@ -108,6 +139,7 @@
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_15" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_14" sourceTerminalName="getNewToken" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_16" targetNode="FCMComposite_1_18" sourceNode="FCMComposite_1_14" sourceTerminalName="OutTerminal.default" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_20" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_18" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_18" targetNode="FCMComposite_1_25" sourceNode="InTerminal.Input" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
     </composition>
     <propertyOrganizer>
       <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.awgTempQueue">
@@ -116,6 +148,42 @@
           <propertyName xmi:type="utility:TranslatableString" key="Property.googleTopic" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
           <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.maxMessagesToPull">
             <propertyName xmi:type="utility:TranslatableString" key="Property.maxMessagesToPull" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
+            <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.sandGoogle_Access_Token">
+              <propertyName xmi:type="utility:TranslatableString" key="Property.sandGoogle_Access_Token" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
+              <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.sandGoogle_PubSub">
+                <propertyName xmi:type="utility:TranslatableString" key="Property.sandGoogle_PubSub" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
+                <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.devGoogle_Access_Token">
+                  <propertyName xmi:type="utility:TranslatableString" key="Property.devGoogle_Access_Token" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
+                  <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.devGoogle_PubSub">
+                    <propertyName xmi:type="utility:TranslatableString" key="Property.devGoogle_PubSub" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
+                    <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.qaGoogle_Access_Token">
+                      <propertyName xmi:type="utility:TranslatableString" key="Property.qaGoogle_Access_Token" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
+                      <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.qaGoogle_PubSub">
+                        <propertyName xmi:type="utility:TranslatableString" key="Property.qaGoogle_PubSub" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
+                        <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.uatGoogle_Access_Token">
+                          <propertyName xmi:type="utility:TranslatableString" key="Property.uatGoogle_Access_Token" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
+                          <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.uatGoogle_PubSub">
+                            <propertyName xmi:type="utility:TranslatableString" key="Property.uatGoogle_PubSub" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
+                            <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.prod1Google_Access_Token">
+                              <propertyName xmi:type="utility:TranslatableString" key="Property.prod1Google_Access_Token" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
+                              <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.prod1Google_PubSub">
+                                <propertyName xmi:type="utility:TranslatableString" key="Property.prod1Google_PubSub" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
+                                <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.prod2Google_Access_Token">
+                                  <propertyName xmi:type="utility:TranslatableString" key="Property.prod2Google_Access_Token" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
+                                  <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.prod2Google_PubSub">
+                                    <propertyName xmi:type="utility:TranslatableString" key="Property.prod2Google_PubSub" bundleName="GooglePubSubResource/PullAckMessage" pluginId="GooglePubSubResource"/>
+                                  </propertyDescriptor>
+                                </propertyDescriptor>
+                              </propertyDescriptor>
+                            </propertyDescriptor>
+                          </propertyDescriptor>
+                        </propertyDescriptor>
+                      </propertyDescriptor>
+                    </propertyDescriptor>
+                  </propertyDescriptor>
+                </propertyDescriptor>
+              </propertyDescriptor>
+            </propertyDescriptor>
           </propertyDescriptor>
         </propertyDescriptor>
       </propertyDescriptor>
