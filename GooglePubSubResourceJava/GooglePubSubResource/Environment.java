@@ -15,9 +15,9 @@ public class Environment {
 		else
 		if(brokerName.contains("IIBT"))
 			return "http://dpdev01-api-dev.awg.local:8020";
+//		    return "http://10.1.200.74:2011 ";
 		else
-		
-		return "http://dpdev01-api-dev.awg.local:8020"; //default to test
+			return "http://dpdev01-api-dev.awg.local:8020"; //default to test
 	}
 	public static String getGooglePubUrl(String brokerName, String topic, String action) {
 		
@@ -32,8 +32,8 @@ public class Environment {
 		else
 		if(brokerName.contains("IIBT"))
 			return "http://dpdev01-api-dev.awg.local:8021/v1/projects/awgr-masc-stg-01-ops/subscriptions/"+topic.trim()+":"+action.trim();
+//		    return "http://10.1.200.74:2013/v1/projects/awgr-masc-stg-01-ops/subscriptions/";
 		else
-		
-		return "http://dpdev01-api-dev.awg.local:8021/v1/projects/awgr-masc-stg-01-ops/subscriptions/"+topic.trim()+":"+action.trim(); //default to test
+			return "http://dpdev01-api-dev.awg.local:8021/v1/projects/awgr-masc-stg-01-ops/subscriptions/"+topic.trim()+":"+action.trim(); //default to test
 	}	
 }

@@ -9,18 +9,30 @@
       <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="37,82" queueName="ATOPPIN.TEMP.WMS.TRIGGER">
         <translation xmi:type="utility:ConstantString" string="Trigger"/>
       </nodes>
-      <nodes xmi:type="ComIbmPassthru.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_16" location="400,85">
+      <nodes xmi:type="ComIbmPassthru.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_16" location="897,231">
         <translation xmi:type="utility:ConstantString" string="Pass through"/>
       </nodes>
       <nodes xmi:type="GooglePubSubResource_PullAckMessage.subflow:FCMComposite_1" xmi:id="FCMComposite_1_2" location="213,32" awgTempQueue="ATOPPIN.TEMP.WMS.TEMP.INVADJUST" googleTopic="XNT_HST_InventoryAdjustment_GCPQ">
         <translation xmi:type="utility:ConstantString" string="PullAckMessage"/>
       </nodes>
+      <nodes xmi:type="GooglePubSubResource_PullAckMessage.subflow:FCMComposite_1" xmi:id="FCMComposite_1_3" location="462,71" awgTempQueue="ATOPPIN.TEMP.WMS.TEMP.INVADJUST" googleTopic="XNT_HST_InventoryAdjustment_GCPQ">
+        <translation xmi:type="utility:ConstantString" string="PullAckMessage1"/>
+      </nodes>
+      <nodes xmi:type="GooglePubSubResource_PullAckMessage.subflow:FCMComposite_1" xmi:id="FCMComposite_1_4" location="669,111" awgTempQueue="ATOPPIN.TEMP.WMS.TEMP.INVADJUST" googleTopic="XNT_HST_InventoryAdjustment_GCPQ">
+        <translation xmi:type="utility:ConstantString" string="PullAckMessage2"/>
+      </nodes>
+      <nodes xmi:type="GooglePubSubResource_PullAckMessage.subflow:FCMComposite_1" xmi:id="FCMComposite_1_5" location="826,164" awgTempQueue="ATOPPIN.TEMP.WMS.TEMP.INVADJUST" googleTopic="XNT_HST_InventoryAdjustment_GCPQ">
+        <translation xmi:type="utility:ConstantString" string="PullAckMessage3"/>
+      </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input"/>
-      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_16" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.Output1" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_6" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.Exit_noMoreMsgs1" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_7" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_3" sourceTerminalName="OutTerminal.Exit_noMoreMsgs1" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_8" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.Exit_noMoreMsgs1" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_9" targetNode="FCMComposite_1_16" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.Exit_noMoreMsgs1" targetTerminalName="InTerminal.in"/>
     </composition>
     <propertyOrganizer/>
     <stickyBoard>
-      <stickyNote location="599,16">
+      <stickyNote location="944,11">
         <body xmi:type="utility:ConstantString" string="10-15-2025 I was able to acknowledge all the messages.&#xA;This queue no longer has any messages.&#xA;XNT_HST_InventorySyncSummary_GCPQ"/>
       </stickyNote>
       <stickyNote location="220,135">

@@ -2,6 +2,7 @@
     <input path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var2"/>
     <input derivedFrom="MB:JSON_schema_in_json_file" path="/inboundMessage.schema.json" var="var"/>
     <input path="/Variables.xsd" var="var4"/>
+    <input derivedFrom="MB:JSON_schema_in_json_file" path="/acknowledgeMessage.schema.json" var="var5"/>
     <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var3"/>
     <output derivedFrom="MB:JSON_schema_in_json_file" path="/inboundMessage.schema.json" var="var1"/>
     <namespaces>
@@ -15,6 +16,7 @@
         <output namespace="http://www.ibm.com/iib/msl/json" path="$var3/mb:msg(JSON,assembly,JSON,LocalEnvironment,Properties)" var="MessageAssembly1">
             <cast derivedFrom="MB:JSON_TYPE" path="$MessageAssembly1/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}inboundMessage.schema_JsonType" ref="var1"/>
             <cast path="$MessageAssembly1/LocalEnvironment/Variables/any" qualifier="totalMessages" ref="var4"/>
+            <cast derivedFrom="MB:JSON_schema_in_json_file" path="$MessageAssembly1/LocalEnvironment/Variables/any" qualifier="{http://www.ibm.com/iib/msl/json}acknowledgeMessage.schema" ref="var5"/>
         </output>
         <move>
             <input path="$MessageAssembly/Properties"/>
@@ -29,5 +31,13 @@
             <output path="$MessageAssembly1/LocalEnvironment/Variables/totalMessages"/>
             <code lang="xpath">fn:count($receivedMessages/Item )</code>
         </expression>
+        <foreach>
+            <input path="$MessageAssembly/JSON/spath('Data',2)/receivedMessages/Item"/>
+            <output path="$MessageAssembly1/LocalEnvironment/Variables/acknowledgeMessage.schema/ackIds/Item"/>
+            <move>
+                <input path="ackId"/>
+                <output path="."/>
+            </move>
+        </foreach>
     </mappingDeclaration>
 </mappingRoot>

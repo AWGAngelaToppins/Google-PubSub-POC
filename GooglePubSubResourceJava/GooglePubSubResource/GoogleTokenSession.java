@@ -37,6 +37,12 @@ public class GoogleTokenSession {
 		if(expiredInNbrOfSeconds>0) {
 			resetSessionMap();
 			
+			//FOR TESTING ONLY
+			//expiredInNbrOfSeconds = 300;  //5 mins
+			expiredInNbrOfSeconds = 120;  //2 mins
+			
+			
+			
 	//		TokenSession tokenSession = new GoogleTokenSession().new TokenSession("Bearer "+accessToken);
 			TokenSession tokenSession = new GoogleTokenSession().new TokenSession(accessToken);
 			sessionHashtable.put("accessToken", tokenSession);
@@ -71,9 +77,10 @@ public class GoogleTokenSession {
 	}
 	public static synchronized void resetSessionMap() {
 		Set<String> hashMapKeys = sessionHashtable.keySet(); 
-		for (String key : hashMapKeys) {
-			sessionHashtable.remove(key);
-		}
+		sessionHashtable.clear();
+//		for (String key : hashMapKeys) {
+//			sessionHashtable.remove(key);
+//		}
 	}
 	public static Date getCurrentDate() {
 		Date currentDate = new Date();
