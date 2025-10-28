@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmMQInput.msgnode="ComIbmMQInput.msgnode" xmlns:ComIbmPassthru.msgnode="ComIbmPassthru.msgnode" xmlns:GooglePubSubResource_PullAckMessage.subflow="GooglePubSubResource/PullAckMessage.subflow" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="GooglePubSubTrigger.msgflow" nsPrefix="GooglePubSubTrigger.msgflow">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmMQInput.msgnode="ComIbmMQInput.msgnode" xmlns:ComIbmPassthru.msgnode="ComIbmPassthru.msgnode" xmlns:GooglePubSubResource_PullAckMessage.subflow="GooglePubSubResource/PullAckMessage.subflow" xmlns:GooglePubSubResource_PullMessage.subflow="GooglePubSubResource/PullMessage.subflow" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility"
+    nsURI="GooglePubSubTrigger.msgflow" nsPrefix="GooglePubSubTrigger.msgflow">
   <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" nodeLayoutStyle="RECTANGLE">
     <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
     <translation xmi:type="utility:TranslatableString" key="GooglePubSubTrigger" bundleName="GooglePubSubTrigger" pluginId="Google-PubSub"/>
@@ -9,26 +10,17 @@
       <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="37,82" queueName="ATOPPIN.TEMP.WMS.TRIGGER">
         <translation xmi:type="utility:ConstantString" string="Trigger"/>
       </nodes>
-      <nodes xmi:type="ComIbmPassthru.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_16" location="897,231">
+      <nodes xmi:type="ComIbmPassthru.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_16" location="428,84">
         <translation xmi:type="utility:ConstantString" string="Pass through"/>
       </nodes>
       <nodes xmi:type="GooglePubSubResource_PullAckMessage.subflow:FCMComposite_1" xmi:id="FCMComposite_1_2" location="213,32" awgTempQueue="ATOPPIN.TEMP.WMS.TEMP.INVADJUST" googleTopic="XNT_HST_InventoryAdjustment_GCPQ">
         <translation xmi:type="utility:ConstantString" string="PullAckMessage"/>
       </nodes>
-      <nodes xmi:type="GooglePubSubResource_PullAckMessage.subflow:FCMComposite_1" xmi:id="FCMComposite_1_3" location="462,71" awgTempQueue="ATOPPIN.TEMP.WMS.TEMP.INVADJUST" googleTopic="XNT_HST_InventoryAdjustment_GCPQ">
-        <translation xmi:type="utility:ConstantString" string="PullAckMessage1"/>
+      <nodes xmi:type="GooglePubSubResource_PullMessage.subflow:FCMComposite_1" xmi:id="FCMComposite_1_3" location="216,85" awgTempQueue="ATOPPIN.TEMP.WMS.TEMP.INVADJUST" googleTopic="XNT_HST_InventoryAdjustment_GCPQ">
+        <translation xmi:type="utility:ConstantString" string="PullMessage"/>
       </nodes>
-      <nodes xmi:type="GooglePubSubResource_PullAckMessage.subflow:FCMComposite_1" xmi:id="FCMComposite_1_4" location="669,111" awgTempQueue="ATOPPIN.TEMP.WMS.TEMP.INVADJUST" googleTopic="XNT_HST_InventoryAdjustment_GCPQ">
-        <translation xmi:type="utility:ConstantString" string="PullAckMessage2"/>
-      </nodes>
-      <nodes xmi:type="GooglePubSubResource_PullAckMessage.subflow:FCMComposite_1" xmi:id="FCMComposite_1_5" location="826,164" awgTempQueue="ATOPPIN.TEMP.WMS.TEMP.INVADJUST" googleTopic="XNT_HST_InventoryAdjustment_GCPQ">
-        <translation xmi:type="utility:ConstantString" string="PullAckMessage3"/>
-      </nodes>
-      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input"/>
-      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_6" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.Exit_noMoreMsgs1" targetTerminalName="InTerminal.Input"/>
-      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_7" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_3" sourceTerminalName="OutTerminal.Exit_noMoreMsgs1" targetTerminalName="InTerminal.Input"/>
-      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_8" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.Exit_noMoreMsgs1" targetTerminalName="InTerminal.Input"/>
-      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_9" targetNode="FCMComposite_1_16" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.Exit_noMoreMsgs1" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_16" sourceNode="FCMComposite_1_3" sourceTerminalName="OutTerminal.Output1" targetTerminalName="InTerminal.in"/>
     </composition>
     <propertyOrganizer/>
     <stickyBoard>

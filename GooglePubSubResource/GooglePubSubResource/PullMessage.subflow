@@ -49,7 +49,7 @@
       <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_11" location="-205,180" mappingExpression="msl://{GooglePubSubResource}#PullAckMessage_splitGoogleMessages">
         <translation xmi:type="utility:ConstantString" string="splitGoogleMessages"/>
       </nodes>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_16" location="-396,175" mappingExpression="msl://{GooglePubSubResource}#PullAckMessage_getTotalMsgCount">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_16" location="-387,142" mappingExpression="msl://{GooglePubSubResource}#PullAckMessage_getTotalMsgCount">
         <translation xmi:type="utility:ConstantString" string="getTotalMsgCount"/>
       </nodes>
       <nodes xmi:type="ComIbmRoute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_17" location="173,188">
@@ -76,7 +76,7 @@
       <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_18" location="175,-10" mappingExpression="msl://{GooglePubSubResource}#PullAckMessage_TokenStillValid">
         <translation xmi:type="utility:ConstantString" string="TokenStillValid"/>
       </nodes>
-      <nodes xmi:type="GooglePubSubResource_AckMessage.subflow:FCMComposite_1" xmi:id="FCMComposite_1_4" location="378,253">
+      <nodes xmi:type="GooglePubSubResource_AckMessage.subflow:FCMComposite_1" xmi:id="FCMComposite_1_4" location="129,272">
         <translation xmi:type="utility:ConstantString" string="AckMessage"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
@@ -116,6 +116,9 @@
       </stickyNote>
       <stickyNote location="561,145" association="FCMComposite_1_5">
         <body xmi:type="utility:ConstantString" string="Loop: get next google message"/>
+      </stickyNote>
+      <stickyNote location="261,301">
+        <body xmi:type="utility:ConstantString" string="After acknowledgement, loop back and see &#xA;if any more messages on Google Pub Sub Topic."/>
       </stickyNote>
     </stickyBoard>
   </eClassifiers>
