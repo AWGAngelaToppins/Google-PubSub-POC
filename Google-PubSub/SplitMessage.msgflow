@@ -6,7 +6,7 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/Google-PubSub/icons/full/obj16/SplitMessage.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/Google-PubSub/icons/full/obj30/SplitMessage.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="35,22" queueName="ATOPPIN.TEMP.WMS.TEMP.INVADJUST" messageDomainProperty="JSON">
+      <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="35,22" queueName="ATOPPIN.TEMP.WMS.TEMP.INVADJUST2" messageDomainProperty="JSON">
         <translation xmi:type="utility:ConstantString" string="MQ Input"/>
       </nodes>
       <nodes xmi:type="GooglePubSubResource_SplitMaWMSmessage.subflow:FCMComposite_1" xmi:id="FCMComposite_1_2" location="173,86" awgQueue="ATOPPIN.TEMP.WMS.FINAL.INVADJUST">
